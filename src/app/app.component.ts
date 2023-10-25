@@ -7,6 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'WorkSpace';
-  typeSelected: string;
-  constructor() { this.typeSelected = 'ball-fussion'; }
+  constructor() { }
 }

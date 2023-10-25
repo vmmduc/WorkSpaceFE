@@ -14,6 +14,7 @@ import { FriendService } from './services/Friend.Service';
 import { UserService } from './services/User.Service';
 import { ChatComponent } from './components/chat/chat.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { Toast, ToastrService } from 'ngx-toastr';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -29,7 +30,7 @@ const routes: Routes = [
     ChatTabComponent,
     FriendsTabComponent,
     SearchTabComponent,
-    SettingTabComponent
+    SettingTabComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +39,6 @@ const routes: Routes = [
     InfiniteScrollModule,
   ],
   exports: [RouterModule],
-  providers: [SignalRService, FriendService, UserService]
+  providers: [SignalRService, FriendService, UserService],
 })
-export class ChatModule { }
+export class ChatModule {}

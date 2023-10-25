@@ -23,9 +23,12 @@
     "@ngrx/entity": "^16.3.0",
     "@ngrx/store": "^16.3.0",
     "axios": "^1.5.1",
+    "bootstrap": "5.1.0",
+    "bootstrap-icons": "^1.11.1",
     "date-fns": "^2.30.0",
     "ngx-infinite-scroll": "^16.0.0",
     "ngx-spinner": "^16.0.2",
+    "ngx-toastr": "^17.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

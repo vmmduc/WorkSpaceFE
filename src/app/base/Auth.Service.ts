@@ -33,6 +33,11 @@ export class AuthService {
         .setFullName(response.rtResult.fullName)
         .setToken(response.rtResult.token)
         .build();
+
+        if(data.remember){
+          sessionStorage.setItem('USER_NAME', data.userName);
+          sessionStorage.setItem('PASSWORD', data.password);
+        }
     }
     if (response.rtStatus) this.router.navigate(['/chat/home']);
   }

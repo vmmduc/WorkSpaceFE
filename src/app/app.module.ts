@@ -9,6 +9,8 @@ import { AuthGuard } from './base/Guard.Service';
 import { DataLocal } from './base/DataLocal.Service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
+import { ToastCustom } from './base/Toast.Service';
 
 @NgModule({
   declarations: [
@@ -20,11 +22,10 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ToastrModule.forRoot(),
   ],
-  providers: [BaseApi, AuthGuard, DataLocal],
+  providers: [BaseApi, AuthGuard, DataLocal, ToastCustom],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
