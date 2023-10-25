@@ -1,0 +1,55 @@
+<!-- Layout -->
+<div class="layout bg-light h-100">
+  <div class="container h-100">
+    <div class="row align-items-center justify-content-center g-0 h-100">
+      <div class="col-12 col-sm-10 col-md-7 col-lg-5 col-xl-4">
+        <!-- Card -->
+        <div class="card">
+          <div class="card-body p-4">
+            <!-- Heading -->
+            <h2 class="text-center mb-1">Đăng nhập</h2>
+            <!-- Heading -->
+            <!-- Form -->
+            <form class="mb-4" (ngSubmit)="onLoginSubmit()">
+              <!-- Email -->
+              <div class="mb-4">
+                <input [(ngModel)]="loginData.userName" id="email" type="email" name="email"
+                  class="form-control form-control-solid form-control-lg" placeholder="Tên đăng nhập">
+              </div>
+              <!-- Email -->
+              <!-- Password -->
+              <div class="mb-4">
+                <input [(ngModel)]="loginData.password" id="password" type="password" name="password"
+                  class="form-control form-control-solid form-control-lg" placeholder="Mật khẩu">
+              </div>
+              <!-- Password -->
+              <!-- Remember -->
+              <div class="d-flex justify-content-between mb-4">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="remember-check" checked>
+                  <label class="form-check-label" for="remember-check">Nhớ mật khẩu</label>
+                </div>
+                <a href="reset.html" class="no-underline">Quên mật khẩu?</a>
+              </div>
+              <!-- Remember -->
+              <!-- Button -->
+              <div class="d-grid">
+                <button class="btn btn-lg btn-primary">Đăng nhập</button>
+              </div>
+              <!-- Button -->
+            </form>
+            <!-- Form -->
+            <!--
+              <p class="text-center mb-0">
+                Don't have an account?
+                <a href="signup.html">Sign up.</a>
+              </p>
+              -->
+          </div>
+        </div>
+        <!-- Card -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Layout -->

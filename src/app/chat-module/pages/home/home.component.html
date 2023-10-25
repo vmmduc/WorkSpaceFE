@@ -1,0 +1,21 @@
+<router-outlet>
+  <!-- Layout -->
+  <div class="layout">
+    <!-- Navigation -->
+    <div class="navigation navbar border-end h-100 py-6">
+      <app-navigation (sendataToParent)="handleData($event)"></app-navigation>
+    </div>
+    <!-- Navigation -->
+    <!-- Sidebar -->
+    <div class="sidebar border-end overflow-hidden h-100">
+      <app-sidebar [dataFromParent]="receivedNavData" (openConversation)="openConversation($event)"></app-sidebar>
+    </div>
+    <!-- Sidebar -->
+    <!-- Main Content -->
+    <div class="main main-visible overflow-hidden h-100">
+      <app-chat [conversationId]="conversation.conversationId" [inputConv]="conversation"></app-chat>
+    </div>
+    <!-- Main Content -->
+  </div>
+  <!-- Layout -->
+</router-outlet>

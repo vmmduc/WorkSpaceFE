@@ -1,0 +1,120 @@
+<router-outlet>
+  <!-- Layout -->
+  <div class="layout">
+    <!-- Navigation -->
+    <div id="idNavigation" class="navigation navbar border-end h-100 py-6">
+      <app-navigation (sendataToParent)="handleNavigation($event)"></app-navigation>
+    </div>
+    <!-- Navigation -->
+    <!-- Sidebar -->
+    <div class="sidebar border-end overflow-hidden h-100">
+      <app-sidebar [dataFromParent]="sendDataToChild" (openConversation)="openConversation($event)"></app-sidebar>
+    </div>
+    <!-- Sidebar -->
+    <!-- Main Content -->
+    <div id="idMainContent" class="main main-visible overflow-hidden h-100">
+      <app-chat [conversationId]="conversation.conversationId" [inputConv]="conversation"></app-chat>
+    </div>
+    <!-- Main Content -->
+  </div>
+  <!-- Layout -->
+
+  <!-- Account Modal -->
+  <div class="modal fade" id="modal-account" tabindex="-1" aria-labelledby="modal-account" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="profile text-center">
+          <div class="profile-img text-primary px-5"></div>
+          <div class="profile-content">
+            <!-- Avatar -->
+            <div class="avatar avatar-lg">
+              <span class="avatar-label bg-soft-success text-success fs-3">JD</span>
+            </div>
+            <!-- Avatar -->
+
+            <!-- Name -->
+            <h5 class="m-1">John Davis</h5>
+            <!-- Name -->
+
+            <!-- Availability -->
+            <p class="text-muted">Đang hoạt động</p>
+            <!-- Availability -->
+          </div>
+        </div>
+
+        <div class="modal-body p-0">
+          <ul class="list-group list-group-flush">
+            <!-- Email -->
+            <li class="list-group-item p-4">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h5 class="mb-1">Họ và tên</h5>
+                  <p class="text-muted mb-0">john@gmail.com</p>
+                </div>
+                <div class="col-auto">
+                  <button type="button" class="btn btn-icon btn-light rounded-circle">
+                    <i class="ri-user-line"></i>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <!-- Email -->
+            <!-- Email -->
+            <li class="list-group-item p-4">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h5 class="mb-1">E-mail</h5>
+                  <p class="text-muted mb-0">john@gmail.com</p>
+                </div>
+                <div class="col-auto">
+                  <button type="button" class="btn btn-icon btn-light rounded-circle">
+                    <i class="ri-mail-line"></i>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <!-- Email -->
+
+            <!-- Phone -->
+            <li class="list-group-item p-4">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h5 class="mb-1">Số điện thoại</h5>
+                  <p class="text-muted mb-0">646-351-2445</p>
+                </div>
+                <div class="col-auto">
+                  <button type="button" class="btn btn-icon btn-light rounded-circle">
+                    <i class="ri-phone-line"></i>
+                  </button>
+                </div>
+              </div>
+            </li>
+            <!-- Phone -->
+
+            <!-- Options -->
+            <li class="list-group-item p-4">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h5 class="mb-1">Trạng thái hoạt động</h5>
+                  <p class="text-muted mb-0"></p>
+                </div>
+                <div class="col-auto">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="switch-active-status" checked>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- Options -->
+          </ul>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+          <button (click)="Logout()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Đăng xuất</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Account Modal -->
+</router-outlet>

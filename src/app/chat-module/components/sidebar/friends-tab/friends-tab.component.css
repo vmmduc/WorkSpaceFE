@@ -1,0 +1,17 @@
+.btn-accept,
+.btn-reject {
+  margin: 5px;
+}
+
+.custom-btn {
+  margin-left: 2px;
+}
+
+.dropdown-margin-top {
+  margin-top: 5px;
+}
+
+.custom-dropdown {
+  cursor: default;
+  user-select: none;
+}

@@ -1,0 +1,27 @@
+<!-- Logo -->
+<a class="logo d-none d-xl-block mb-6" href="#">
+</a>
+<!-- Logo -->
+<!-- Nav -->
+<ul class="nav nav-pills" role="tablist">
+  <li *ngFor="let nav of lsNavs" class="nav-item mb-5" role="presentation">
+    <a (click)="sendDataToParent(nav)"
+       id="{{ nav.id }}"
+       class="nav-link {{nav.default}}"
+       data-bs-toggle="pill"
+       role="tab"
+       aria-selected="true"
+       title="{{ nav.title }}">
+      <i class="{{ nav.icon }}"></i>
+    </a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#modal-account" title="Account">
+      <div class="avatar avatar-online avatar-sm">
+        <span class="avatar-label bg-soft-success text-success fs-6">ĐV</span>
+      </div>
+    </a>
+  </li>
+  <!-- Avatar -->
+</ul>
+<!-- Nav -->

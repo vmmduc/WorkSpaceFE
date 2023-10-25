@@ -1,0 +1,67 @@
+<!-- Tab Content -->
+<div class="hide-scrollbar h-100">
+  <div class="tab-content m-4 mt-1">
+    <!-- Segmented Control -->
+    <div class="text-center mb-3">
+      <ul class="nav nav-pills nav-segmented" id="pills-tab" role="tablist">
+        <!-- Direct Nav Item -->
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="pills-direct-tab" data-bs-toggle="pill" href="#direct-tab" role="tab"
+            aria-controls="pills-direct-tab" aria-selected="true">Tin nhắn</a>
+        </li>
+        <!-- Direct Nav Item -->
+        <!-- Group Nav Item -->
+        <li class="nav-item" role="presentation">
+          <a (click)="showFriendsTab()" class="nav-link" id="pills-group-tab" data-bs-toggle="pill" href="#groups-tab"
+            role="tab" aria-controls="pills-group-tab" aria-selected="false">Bạn bè</a>
+        </li>
+        <!-- Group Nav Item -->
+      </ul>
+    </div>
+    <!-- Segmented Control -->
+    <!-- Direct Chats Tab -->
+    <div class="tab-pane fade show active" id="direct-tab" role="tabpanel">
+      <ul class="list-unstyled js-contact-list mb-0">
+        <!-- Chat Link 1 -->
+        <li *ngFor="let item of lsConversation" (click)="openMessage(item.conversationId || 0, item.displayName || '')"
+          class="card contact-item mb-3">
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <!-- Avatar -->
+              <div class="avatar avatar-online me-4">
+                <span class="avatar-label bg-soft-primary text-primary">AM</span>
+              </div>
+              <!-- Avatar -->
+              <!-- Content -->
+              <div class="flex-grow-1 overflow-hidden">
+                <div class="d-flex align-items-center mb-1">
+                  <h5 class="text-truncate mb-0 me-auto">{{ item.displayName }}</h5>
+                  <p class="small text-muted text-nowrap ms-4 mb-0">{{ item.message?.createdDate | date:'shortTime'}}
+                  </p>
+                </div>
+                <div class="d-flex align-items-center">
+                  <div class="line-clamp me-auto">
+                    {{ item.message?.messageContent }}
+                  </div>
+                  <span *ngIf="(item.unreadMessageCount || 0) > 0" class="badge rounded-pill bg-primary ms-2">{{
+                    item.unreadMessageCount }}</span>
+                </div>
+              </div>
+              <!-- Content -->
+            </div>
+          </div>
+        </li>
+        <!-- Chat Link 1 -->
+      </ul>
+    </div>
+    <!-- Direct Chats Tab -->
+    <div class="tab-pane fade show" id="groups-tab" role="tabpanel">
+      <div class="tab-pane fade show active h-100" id="friends-tab" role="tabpanel">
+        <div class="d-flex flex-column h-100">
+          <app-friends-tab [lsFriend]="lsFriend"></app-friends-tab>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Tab Content -->
