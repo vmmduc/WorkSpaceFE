@@ -25,23 +25,30 @@
                 <!-- Name Input -->
                 <div class="mb-4">
                   <div class="input-group">
-                    <input type="text" class="form-control form-control-lg form-control-solid" placeholder="Họ và tên">
+                    <input type="text" 
+                          class="form-control form-control-lg form-control-solid" 
+                          placeholder="Họ và tên"
+                          value="{{ currentUser.fullName }}">
                   </div>
                 </div>
                 <!-- Name Input -->
                 <!-- Email Input -->
                 <div class="mb-4">
                   <div class="input-group">
-                    <input type="text" class="form-control form-control-lg form-control-solid" placeholder="Email"
-                      aria-label="Email">
+                    <input type="text" 
+                          class="form-control form-control-lg form-control-solid" 
+                          placeholder="Email"
+                          value="{{ currentUser.email }}" disabled>
                   </div>
                 </div>
                 <!-- Email Input -->
                 <!-- Phone Input -->
                 <div class="mb-4">
                   <div class="input-group">
-                    <input type="text" class="form-control form-control-lg form-control-solid"
-                      placeholder="Số điện thoại">
+                    <input type="text" 
+                          class="form-control form-control-lg form-control-solid"
+                          placeholder="Số điện thoại"
+                          value="{{ currentUser.phoneNumber }}">
                   </div>
                 </div>
                 <!-- Phone Input -->

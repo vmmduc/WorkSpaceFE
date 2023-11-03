@@ -1,10 +1,10 @@
 import { StorageKey } from "../chat-module/constants/constant";
 
 export class DataLocal {
-    userId: number;
-    email: string;
-    fullName: string;
-    token: string;
+    private userId: number;
+    private email: string;
+    private fullName: string;
+    private token: string;
 
     constructor(){
         this.userId = 0;
@@ -29,9 +29,9 @@ export class DataLocal {
         return this;
     }
     getId = () => parseInt(localStorage.getItem(StorageKey.PK_USER_ID) || '0');
-    getEmail = () => localStorage.getItem(StorageKey.EMAIL);
-    getFullName = () => localStorage.getItem(StorageKey.FULL_NAME);
-    getToken = () => localStorage.getItem(StorageKey.TOKEN);
+    getEmail = () => localStorage.getItem(StorageKey.EMAIL) || '';
+    getFullName = () => localStorage.getItem(StorageKey.FULL_NAME) || '';
+    getToken = () => localStorage.getItem(StorageKey.TOKEN) || '';
 
     build() {
         localStorage.setItem(StorageKey.PK_USER_ID, String(this.userId))
