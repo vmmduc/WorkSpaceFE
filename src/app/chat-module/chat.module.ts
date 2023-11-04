@@ -14,7 +14,7 @@ import { FriendService } from './services/Friend.Service';
 import { UserService } from './services/User.Service';
 import { ChatComponent } from './components/chat/chat.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { PhoneNumberPipe } from './pipes/phone-number.pipe';
+import { Toast, ToastrService } from 'ngx-toastr';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -31,7 +31,6 @@ const routes: Routes = [
     FriendsTabComponent,
     SearchTabComponent,
     SettingTabComponent,
-    PhoneNumberPipe
   ],
   imports: [
     CommonModule,

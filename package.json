@@ -21,7 +21,6 @@
     "@microsoft/signalr": "^7.0.12",
     "@ngrx/effects": "^16.3.0",
     "@ngrx/entity": "^16.3.0",
-    "@ngrx/router-store": "^16.3.0",
     "@ngrx/store": "^16.3.0",
     "axios": "^1.5.1",
     "bootstrap": "5.1.0",
