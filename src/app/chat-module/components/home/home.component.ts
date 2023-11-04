@@ -18,6 +18,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
     displayName: '',
     openMessage: false
   };
+  currentUser: any = {
+    fullName: this.dataLocal.getFullName(),
+    email: this.dataLocal.getEmail(),
+    phoneNumber: this.dataLocal.getPhoneNumber()
+  };
   openMessage: boolean = false;
 
   constructor(private router: Router,
@@ -41,7 +46,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.sendDataToChild = data
   }
 
-  Logout(){
+  Logout() {
     this.authService.Logout();
   }
 
