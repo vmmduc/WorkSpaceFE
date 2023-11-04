@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ConversationObj } from '../../../models/object/Conversations/conversation.interface';
 import { ConversationService } from '../../../services/Conversation.Service';
 import { OpenMessageDto } from '../../../models/dtos/open-message.interface';

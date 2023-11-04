@@ -31,6 +31,7 @@ export class AuthService {
         .setId(response.rtResult.userId)
         .setEmail(response.rtResult.email)
         .setFullName(response.rtResult.fullName)
+        .setPhoneNumber(response.rtResult.phoneNumber)
         .setToken(response.rtResult.token)
         .build();
 
