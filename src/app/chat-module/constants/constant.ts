@@ -6,7 +6,6 @@ export const StorageKey = {
   PK_USER_ID: 'PK_USER_ID',
   EMAIL: 'EMAIL',
   FULL_NAME: 'FULL_NAME',
-  PHONE_NUMBER: 'PHONE_NUMBER',
   TOKEN: 'TOKEN'
 }
 

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FriendObj } from '../../../models/object/Friends/friend.interface';
 import { FriendService } from '../../../services/Friend.Service'
 import { Action, State } from '../../../constants/constant';
