@@ -6,6 +6,7 @@ import { ConversationObj } from '../../models/object/Conversations/conversation.
 import { OpenMessageDto } from '../../models/dtos/open-message.interface';
 import { DataLocal } from '../../../base/DataLocal.Service';
 import { PreparingMessageObj } from '../../models/object/Conversations/preparing-message.interface';
+import { Utils } from '../../utils/utils';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -93,7 +94,7 @@ export class ChatComponent implements OnChanges, OnInit, AfterViewInit {
   async sendMessage() {
     if (this.messageContent !== '') {
       var lastMessage = this.conversation.lsMessage[this.conversation.lsMessage.length - 1];
-      let lastDateMsg = new Date(lastMessage.createdDate)
+      let lastDateMsg = new Date(lastMessage === undefined ? new Date() : lastMessage.createdDate)
       const currentTime = new Date();
       const timeDifference = currentTime.getTime() - lastDateMsg.getTime();
       let groupId = 0;
@@ -101,7 +102,7 @@ export class ChatComponent implements OnChanges, OnInit, AfterViewInit {
           * mặc định sẽ không có nhóm nào
           ?? nếu tin nhắn cuối cùng so với thời gian hiện tại mà nhỏ hơn 15p thì thêm vào nhóm với tin nhắn cuối cùng
       */
-      if (this.isToday(lastMessage.createdDate) && timeDifference / (60 * 1000) < 15 && lastMessage.senderId === this.currentUserId)
+      if (lastMessage !== undefined && Utils.isToday(lastDateMsg) && timeDifference / (60 * 1000) < 15 && lastMessage.senderId === this.currentUserId)
         groupId = lastMessage.groupId != 0 ? lastMessage.groupId : lastMessage.messageId;
 
       let request: SendMessageObj = {
@@ -144,19 +145,5 @@ export class ChatComponent implements OnChanges, OnInit, AfterViewInit {
       status: data
     }
     await this.signalrService.PreparingMessage(request)
-  }
-
-  isToday(date: Date): boolean {
-    const today = new Date();
-    const inputDate = new Date(date);
-    return inputDate.getDate() === today.getDate() &&
-      inputDate.getMonth() === today.getMonth() &&
-      inputDate.getFullYear() === today.getFullYear();
-  }
-
-  compareDate(date1: Date, date2: Date) {
-    const inputDate1 = new Date(date1);
-    const inputDate2 = new Date(date2);
-    return inputDate1.getUTCDate() === inputDate2.getUTCDate();
   }
 }

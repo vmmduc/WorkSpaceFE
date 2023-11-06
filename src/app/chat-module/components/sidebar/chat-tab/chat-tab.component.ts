@@ -74,6 +74,7 @@ export class ChatTabComponent implements OnInit {
         this.lsConversation.push(res);
       } else {
         // ! Nếu đã có cuộc trò chuyện thì đẩy cuộc trò chuyện đó lên đầu
+        res.displayName = this.lsConversation[index].displayName;
         this.lsConversation.splice(index, 1);
         this.lsConversation.unshift(res);
       }

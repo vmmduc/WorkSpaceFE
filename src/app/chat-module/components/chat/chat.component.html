@@ -119,73 +119,18 @@
     </div>
     <!-- Chat Search -->
     <!-- Chat Content -->
-    <div #scrollframe infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollUpDistance]="1.5"
-      [infiniteScrollThrottle]="50" (scrolledUp)="onScrollUp()" [scrollWindow]="false"
-      class="chat-content hide-scrollbar h-100">
-      <div class="container-fluid g-0 p-4">
-        <!-- Messages -->
-        <div *ngFor="let item of conversation.lsMessage let index = index" #item>
-          <!-- Message item -->
-          <div *ngIf="index === 0; else notFirstItem">
-            <div *ngIf="isToday(item.createdDate); else elseBlock">
-              <div class="separator">
-                <span class="separator-title fs-7 ls-1">Hôm nay</span>
-              </div>
-            </div>
-            <ng-template #elseBlock>
-              <div class="separator">
-                <span class="separator-title fs-7 ls-1">{{ item.createdDate | date: 'dd/MM/yyyy'}}</span>
-              </div>
-            </ng-template>
-          </div>
-          <ng-template #notFirstItem>
-            <div *ngIf="!compareDate(item.createdDate, conversation.lsMessage[index-1].createdDate)
-                      && isToday(item.createdDate)" class="separator">
-              <span class="separator-title fs-7 ls-1">Hôm nay</span>
-            </div>
-            <div *ngIf="!compareDate(item.createdDate, conversation.lsMessage[index-1].createdDate)
-                      && !isToday(item.createdDate)" class="separator">
-              <span class="separator-title fs-7 ls-1">{{ item.createdDate | date: 'dd/MM/yyyy'}}</span>
-            </div>
-          </ng-template>
-          <div *ngIf="item.groupId === 0">
-            <div [ngClass]="{'self': item.senderId === currentUserId}" class="message">
-              <div class="message-wrap">
-
-                <div>
-                  <div class="message-item">
-                    <div class="message-content" [ngClass]="{'msg-content': item.senderId === currentUserId}">
-                      <span>{{ item.messageContent }}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div *ngFor="let i of conversation.lsMessage">
-                  <div *ngIf="i.groupId !== 0 && i.groupId === item.messageId" class="message-item">
-                    <div class="message-content">
-                      <span>{{ i.messageContent }}</span>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-              <!-- <div *ngIf="item.SenderId !== currentUserId"> -->
-              <div>
-                <div class="message-info">
-                  <div class="avatar avatar-sm">
-                    <span class="avatar-label bg-soft-primary text-primary fs-6">{{ item.senderId }}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Message item -->
-        </div>
-        <!-- Messages -->
-      </div>
+    <div #scrollframe class="chat-content hide-scrollbar h-100">
+      <app-chat-content infiniteScroll
+                        [infiniteScrollDistance]="2" 
+                        [infiniteScrollUpDistance]="1.5"
+                        [infiniteScrollThrottle]="50" 
+                        (scrolledUp)="onScrollUp()" 
+                        [scrollWindow]="false"
+                        [conversation] = 'conversation'
+                        [currentUserId] = 'currentUserId'></app-chat-content>
     </div>
     <!-- Chat Content -->
+
     <!-- Chat Footer -->
     <div *ngIf="prepareMessage" class="type-indicator">
       <span></span>

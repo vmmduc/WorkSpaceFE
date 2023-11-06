@@ -15,6 +15,7 @@ import { UserService } from './services/User.Service';
 import { ChatComponent } from './components/chat/chat.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { Toast, ToastrService } from 'ngx-toastr';
+import { ChatContentCompontent } from './components/chat/chat-contents/chat-contents.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
     NavigationComponent,
     SidebarComponent,
     ChatComponent,
+    ChatContentCompontent,
     ChatTabComponent,
     FriendsTabComponent,
     SearchTabComponent,
