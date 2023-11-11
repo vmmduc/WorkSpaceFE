@@ -22,7 +22,7 @@
     "@ngrx/effects": "^16.3.0",
     "@ngrx/entity": "^16.3.0",
     "@ngrx/store": "^16.3.0",
-    "axios": "^1.5.1",
+    "axios": "^1.6.0",
     "bootstrap": "5.1.0",
     "bootstrap-icons": "^1.11.1",
     "date-fns": "^2.30.0",
