@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ConversationObj } from '../../../models/object/Conversations/conversation.interface';
 import { ConversationService } from '../../../services/Conversation.Service';
 import { OpenMessageDto } from '../../../models/dtos/open-message.interface';
@@ -23,7 +23,7 @@ export class ChatTabComponent implements OnInit {
     private friendService: FriendService,
     private signalrService: SignalRService,
     private conversationService: ConversationService
-  ) {}
+  ) { }
 
   async ngOnInit(): Promise<void> {
     // !Lấy danh sách tin nhắn
@@ -57,26 +57,21 @@ export class ChatTabComponent implements OnInit {
       );
       res.unreadMessageCount = currentMember?.unreadMessageCount;
 
-      // !Nếu chưa có cuộc trò chuyện thì set tên hiển thị
+      // !Nếu chưa có cuộc trò chuyện thì set tên hiển thị và đẩy lên đầu danh sách
       if (index === -1) {
         let displayName = '';
         if (res.isGroup) {
           displayName = res.displayName;
         } else {
-          let item = res.conversationMembers.find(
-            (x) => x.userId !== this.dataLocal.getId()
-          );
+          let item = res.conversationMembers.find(x => x.userId !== this.dataLocal.getId());
           if (item !== undefined)
-            displayName =
-              item.pseudonym !== '' ? item.pseudonym : item.fullName;
+            displayName = item.pseudonym !== '' ? item.pseudonym : item.fullName;
         }
         res.displayName = displayName;
         this.lsConversation.push(res);
       } else {
         // ! Nếu đã có cuộc trò chuyện thì đẩy cuộc trò chuyện đó lên đầu
-        res.displayName = this.lsConversation[index].displayName;
-        this.lsConversation.splice(index, 1);
-        this.lsConversation.unshift(res);
+        this.lsConversation.moveToTop(index);
       }
     });
   }
